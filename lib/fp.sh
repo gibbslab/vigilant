@@ -53,12 +53,12 @@ elif [ $2 = "success" ]; then
    color=$NC
 fi
 
-  echo "....................................................."
+  echo ""
   printf " ${CYAN}Message from: $0 ${NC}"
   echo ""
   printf " ${color}$1 ${NC}"
   echo ""
-  echo "......................................................"
+  echo ""
 }
 
 #Creates a timestamp of right now. 

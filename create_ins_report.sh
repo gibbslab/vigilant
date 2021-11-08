@@ -55,7 +55,6 @@ do
     j) jsonFile=${OPTARG};;
     v) vocFile=${OPTARG};;
     d) vrDir=${OPTARG};;
-    m) metaData=${OPTARG};;
    \?) echo "Missing argument value: ${OPTARG}" 1>&2;;
     :) echo "Missing value: ${OPTARG} requires an argument " 1>&2;;
   esac
@@ -341,13 +340,6 @@ do
   # echo "-----"
 
 done
-
-# NOT FOR PRODUCTION
-# !!!WARNING!!!!
-#TEMPORAL HACK TO SEE METADATA IS BEING READ AND PROCESSED
-awk 'BEGIN { FS = "\t" } ; {print $1,$4,$6,$12}' ${metaData} > METADATA.src
-cat ${reportMainFile} METADATA.src > METADATA.out
-
 
 #mv report file un dir up. So it is visible to user.
 mv ${reportMainFile} .

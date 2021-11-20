@@ -139,8 +139,13 @@ reportMainFile=$(echo ${tmpDir}/${baseName}".ins_report.tsv")
 # User feed back.
 #saythis "Creating output file: ${reportMainFile}" "msg"
 
-# Write header in output file
-echo "Codigo:Linaje:Mutacion de interes:Delecion:Delecion(coordenadas):Inserciones:Sustituciones:Sustituciones(AA):Profundidad:Cobertura:Laboratorio" | tr ':' '\t' > ${reportMainFile}
+
+#--------------------------------------------------------------------
+#
+# HEADER FOR OUTPUT FILE
+#
+#--------------------------------------------------------------------
+echo "ID:Clade:Insercion:aaSubst:NucSubs:VOI:Depth:Coverage:aaDeletion:Rangeof_aaDel(in genome):Lab" | tr ':' '\t' > ${reportMainFile}
 
 #--------------------------------------------------------------------
 # Get the number of entries (A.K.A genomes analyzed, fields in array).
@@ -330,8 +335,8 @@ do
   # Paste does all the magic. Easy to modify columns position.
   # We have to give the relative path to the file because now we 
   # are into the tmp folder.
-  # paste S C V K R I N A D F L  >> ../${reportMainFile}
-  paste S R I A C D F L  >> ../${reportMainFile}
+  # paste S R I A C D F L  >> ../${reportMainFile}
+  paste S C I A N V D F K R L   >> ../${reportMainFile}
   
   #We need to get back one dir up.
   cd ..

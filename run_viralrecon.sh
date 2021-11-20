@@ -77,15 +77,22 @@ fi
 #--------------------------------------------------------------------
 # RUN IT
 #--------------------------------------------------------------------
+#--skip_nanoplot \
+#--min_barcode_reads 10 \
+#--gff /datos/datosapinzon/GitHub/vigilant/viralrecon/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz \
 echo ""
 saythis "STARTING VIRALRECON ${vReconRelease}" "msg"
 echo ""
 
-sudo ${nfBin} run nf-core/viralrecon -r ${vReconRelease} \
+${nfBin} run nf-core/viralrecon -r ${vReconRelease} \
 --input ${sampleSheet} \
 --platform nanopore \
 --genome 'MN908947.3' \
 --primer_set_version 3 \
+--primer_bed ${VIGILANTHOME}/viralrecon/nCoV-2019.primer.bed \
+--fasta ${VIGILANTHOME}/viralrecon/nCoV-2019.reference.fasta \
+--gff ${VIGILANTHOME}/viralrecon/GCA_009858895.3_ASM985889v3_genomic.200409.gff.gz \
+--skip_asciigenome \
 --fastq_dir ${fastqDir} \
 --artic_minion_caller medaka \
 --artic_minion_medaka_model ${medakaModel} \
@@ -93,5 +100,4 @@ sudo ${nfBin} run nf-core/viralrecon -r ${vReconRelease} \
 -c ${customConfig} \
 --sequencing_summary ${sequencingSummary} \
 --outdir ${outDir} \ 
--resume
 

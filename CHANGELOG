@@ -1,5 +1,10 @@
-2021/11/08
-* Updated creation of VIGILANTHOME variable in vigilant.env
+2021/11/08 2021/19/08
+* Now the output is full, all retrieved data from JSON parsing is displayed.
+* Skips asciigenome step.
+* GFF file  now found offline. This skips downloading from github
+* Genome reference now found offline. This skipsdownloading from github
+* Primer bed file now found offline. This skips downloading from GitHub.
+* Updated creation of VIGILANTHOME variable in vigilant.env. Now using "realpath".
 * Removed "-m" option from all scripts that "required" metadata file. Not needed anymore.
 
 2021/09/20
